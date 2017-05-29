@@ -4,6 +4,12 @@ Open Source Data Visualization Music
 ## Description
 ...
 
+## Graph
+... image graph
+
+## Animation
+... image/animation 
+
 ## Source Information
 ### site 
 musicarchive.org (link) 
