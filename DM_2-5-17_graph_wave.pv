@@ -1,0 +1,53 @@
+size(2000, 2000)
+background(1)
+
+import json
+
+with open('tracks_data.json') as infile:
+    track_listensData = json.load(infile)
+print len(track_listensData)
+print track_listensData[0]
+
+def wave(marginx, y, amp, lamb, width, strokec):
+    num = width / lamb
+    for i in range(num):
+        x = marginx + (i * lamb)
+        with bezier(x, y - amp, stroke=strokec, fill=None):
+            x1 = x + lamb / 4
+            x2 = x + lamb / 2
+            y1 = y - amp
+            y2 = y + amp
+            curveto(x1, y1, x1, y2, x2, y2)
+            x1 = x + ((lamb / 4) * 3)
+            x2 = x + lamb
+            y1 = y + amp
+            y2 = y - amp
+            curveto(x1, y1, x1, y2, x2, y2)	
+            
+# Start drawing at the top (y = 0)
+y = 0
+x = 200
+# Only limit on the first 20
+for word in track_listensData[:8]:
+		# draw each line 22 pixels lower
+    y = y 
+    x = x + 60
+    # calculate the width of the bar sensibly (1150 / 3 for the widest bar)
+    barwidth = word['track_listens'] 
+		# draw each frequency as a bar graph
+
+    marginx = 70
+    y = 500
+    amp = 40
+    lamb = 200
+    stroke(0.2)
+    nofill()
+    col = color(random())
+    wave(marginx, y, barwidth, barwidth , 300, col)
+    
+    
+
+    
+    
+
+   
